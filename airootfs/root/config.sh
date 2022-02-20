@@ -50,14 +50,15 @@ enable_networking()
 enable_desktop_manager()
 {
     print_message ">>> Enabling display manager <<<"
-
-    if [[ $DESKTOP_ENV == "KDE" ]]; then
-        systemctl enable sddm.service
-    elif [[ $DESKTOP_ENV == "GNOME" ]]; then
-        systemctl enable gdm.service
-    elif [[ $DESKTOP_ENV == "i3" ]]; then
-        systemctl enable sddm.service
-    fi
+    systemctl enable sddm.service
+    systemctl enable NetworkManager
+    # if [[ $DESKTOP_ENV == "KDE" ]]; then
+    #     systemctl enable sddm.service
+    # elif [[ $DESKTOP_ENV == "GNOME" ]]; then
+    #     systemctl enable gdm.service
+    # elif [[ $DESKTOP_ENV == "i3" ]]; then
+    #     systemctl enable sddm.service
+    # fi
 }
 
 setup_root_account()
@@ -142,6 +143,7 @@ main()
     setup_root_account &&
     setup_user_account &&
     install_bootloader &&
+    sddm &&
     clean_up
 }
 

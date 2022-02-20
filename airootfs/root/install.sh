@@ -66,10 +66,16 @@ select_video_drivers()
     fi
 }
 
+ 
+
+
+
 install_packages()
 {
+    
     print_message "Installing packages..."
     pacstrap -C /root/pacman_on_iso.conf /mnt $PACKAGES --cachedir=/root/pkg --needed
+ 
 }
 
 generate_fstab()
@@ -141,18 +147,24 @@ install_system()
     select_video_drivers
 
     install_packages
-    generate_fstab
+   
 
+    generate_fstab
     copy_mirrorlist
     copy_scripts
-
     configure_system
+    
 }
 
 verify_installation()
 {
     [[ ! -f /mnt/root/$CONFFILE && ! -f /mnt/root/$ENVFILE && ! -f /mnt/root/$PRINTERFILE ]]
 }
+
+
+
+
+
 
 main()
 {
@@ -166,6 +178,8 @@ main()
     install_system
     verify_installation
 
+   
+
     # Message at end
     if [[ $? == 0 ]]; then
         print_success "Installation finished! You can reboot now."
@@ -174,6 +188,10 @@ main()
         exit 1
     fi
 }
+
+
+
+ 
 
 # Execute main
 main $@

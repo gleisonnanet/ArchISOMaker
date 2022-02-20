@@ -10,6 +10,6 @@ KEYMAP="la-latin1"              # Check /usr/share/kbd/keymaps/**/*.map.gz for m
 ZONEINFO="America/Sao_Paulo"     # Check /usr/share/zoneinfo/ for more options
 DESKTOP_ENV="KDE"               # KDE, GNOME, i3, X11
 BOOTLOADER="refind"             # refind, grub
-XORG_DRIVERS="amd"           # nvidia, amd, vbox, intel
+XORG_DRIVERS="vbox"           # nvidia, amd, vbox, intel
 
  

@@ -1,0 +1,11 @@
+    echo '    ' >> src/branding/custombranding/show.qml
+    echo '    Slide {' >> src/branding/custombranding/show.qml
+    echo '        ' >> src/branding/custombranding/show.qml
+    echo '        Image {' >> src/branding/custombranding/show.qml
+    echo '            id: background1' >> src/branding/custombranding/show.qml
+    echo '            source: "*"' >> src/branding/custombranding/show.qml
+    echo '            width: 800; height: 440' >> src/branding/custombranding/show.qml
+    echo '            fillMode: Image.PreserveAspectFit' >> src/branding/custombranding/show.qml
+    echo '            anchors.centerIn: parent' >> src/branding/custombranding/show.qml
+    echo '        }' >> src/branding/custombranding/show.qml
+    echo '    }' >> src/branding/custombranding/show.qml

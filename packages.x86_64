@@ -120,7 +120,6 @@ xorg
 xorg-xinit
 xorg-drivers
 xterm
-i3
 dmenu
 feh
 gparted
@@ -195,5 +194,8 @@ xorg-xinit
 xorg-twm
 xterm
 xorg-drivers
+plasma
+sddm
+
 
  

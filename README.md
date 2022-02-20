@@ -1,85 +1,85 @@
 # ArchISOMaker
-A custom Arch Linux ISO Maker (Just a bunch of scripts)
+Um criador de ISO do Arch Linux personalizado (apenas um monte de scripts)
 
-## Instructions
+## Instruções
 
-* Clone this repo.
-* Run `$ sudo ./build.sh -v`
+* Clonar este repositório.
+* Execute `$ sudo ./build.sh -v`
 * ???
-* Profit! Your ISO file will be in the parent of this folder.
+* Lucro! Seu arquivo ISO estará no pai desta pasta.
 
-## Introduction
+## Introdução
 
-This is a script collection based on Archiso, which allows you to build your
-own Arch Linux ISO. The main difference from upstream is that this variant
-pulls the most updated ArchLinux packages and embeds them in the ISO file.
-This means that you do not need to have an internet connection anymore when
-*installing* Arch Linux from this ISO.
+Esta é uma coleção de scripts baseada no Archiso, que permite que você construa seu
+próprio Arch Linux ISO. A principal diferença do upstream é que esta variante
+puxa os pacotes ArchLinux mais atualizados e os incorpora no arquivo ISO.
+Isso significa que você não precisa mais ter uma conexão com a Internet quando
+*instalando* o Arch Linux a partir deste ISO.
 
-Additionally, a custom installation script is also embedded in the ISO, so you
-can install a *standard* version of Arch Linux non-interactively . Of course, you
-are not forced to use it, if you want to manually install Arch Linux following the
-wiki instructions.
+Além disso, um script de instalação personalizado também é incorporado ao ISO, para que você
+pode instalar uma versão *padrão* do Arch Linux de forma não interativa. Claro, você
+não são forçados a usá-lo, se você deseja instalar manualmente o Arch Linux seguindo as
+instruções wiki.
 
-## Building your ISO
+## Construindo sua ISO
 
-You need to have `archiso` installed in your system to use this script, and a
-working internet connection to pull the packages that we'll embed into the ISO.
-The embedded packages are specified in `airootfs/root/packages.sh`, will be
-downloaded in `airootfs/root/pkg`, and will be automatically updated when
-you run `build.sh` (the ISO-building script).
+Você precisa ter o `archiso` instalado em seu sistema para usar este script, e um
+uma conexão de internet funcionando para puxar os pacotes que vamos incorporar no ISO.
+Os pacotes embutidos são especificados em `airootfs/root/packages.sh`, serão
+baixado em `airootfs/root/pkg`, e será atualizado automaticamente quando
+você executa `build.sh` (o script de construção ISO).
 
-If you don't want to auto-update the packages when running the script,
-edit `customtools.sh` and change the *UPDATECACHE* variable to 0.
+Se você não quiser atualizar automaticamente os pacotes ao executar o script,
+edite `customtools.sh` e altere a variável *UPDATECACHE* para 0.
 
-## Testing your ISO
+## Testando sua ISO
 
-The generated ISO comes with virtualbox drivers, so you can setup a VirtualBox
-machine and run your ISO there.
+O ISO gerado vem com drivers do virtualbox, para que você possa configurar um VirtualBox
+machine e execute seu ISO lá.
 
-Alternatively, `archiso` provides with a convenient method that uses QEMU:
+Alternativamente, `archiso` fornece um método conveniente que usa QEMU:
 
-- `run_archiso -i path/to/an/arch.iso` to run as BIOS
-- `run_archiso -u -i path/to/an/arch.iso` to run as UEFI
+- `run_archiso -i path/to/an/arch.iso` para executar como BIOS
+- `run_archiso -u -i path/to/an/arch.iso` para executar como UEFI
 
-## Installing your system
+## Instalando seu sistema
 
-Burn the generated ISO to a DVD or an USB stick.
-When you boot it, you'll be greeted by a welcome message that hints you the
-necessary steps that you have to follow, so you can run the installation
+Grave o ISO gerado em um DVD ou pendrive.
+Ao inicializá-lo, você será saudado por uma mensagem de boas-vindas que indica o
+passos necessários que você deve seguir, para que você possa executar a instalação
 script (`install.sh`).
 
-### Relevant information
+### Informação relevante
 
-The installation script (`install.sh`) uses settings from the `env.sh` file,
-so you are required to edit it *before* installing the system!
+O script de instalação (`install.sh`) usa as configurações do arquivo `env.sh`,
+então você é obrigado a editá-lo *antes* de instalar o sistema!
 
-### Script descriptions
+### Descrições do script
 
-Each script file plays a particular role:
+Cada arquivo de script desempenha uma função específica:
 
-- `install.sh`: The main installation script.
-- `env.sh`: The environment script that stores the installation/setup information.
-- `config.sh`: A configuration script that inside *chroot*, after installing the
-packages. It uses the information stored in `env.sh`.
-- `packages.sh`: A "database" of needed packages depending on your choices in
-the installation script.
-- `printer.sh`: A printer script, mostly used to print colored messages.
+- `install.sh`: O script de instalação principal.
+- `env.sh`: O script de ambiente que armazena as informações de instalação/configuração.
+- `config.sh`: Um script de configuração que dentro do *chroot*, após instalar o
+pacotes. Ele usa as informações armazenadas em `env.sh`.
+- `packages.sh`: Um "banco de dados" de pacotes necessários dependendo de suas escolhas em
+o script de instalação.
+- `printer.sh`: Um script de impressora, usado principalmente para imprimir mensagens coloridas.
 
-## Available packages by default
+## Pacotes disponíveis por padrão
 
-### Desktop environments
+### Ambientes de trabalho
 * KDE (Plasma)
 * GNOME (GNOME Shell)
-* i3 (Window manager)
-* X11 (Minimal Xorg)
+* i3 (Gerenciador de janelas)
+* X11 (Xorg mínimo)
 
-### Bootloaders
+### Carregadores de inicialização
 * rEFInd
 * GRUB
 
-### Graphic drivers
+### Drivers gráficos
 * nVidia
 * AMD
-* VirtualBox
+*Virtual Box
 * Intel
